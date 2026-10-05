@@ -22,6 +22,7 @@ from catalog.views import (
     TitleDetailView,
     TitleListView,
     TitleUpdateView,
+    toggle_favorite,
     index,
 )
 
@@ -50,6 +51,11 @@ urlpatterns = [
         "titles/<int:pk>/delete/",
         TitleDeleteView.as_view(),
         name="title-delete",
+    ),
+    path(
+        "titles/<int:pk>/favorite/",
+        toggle_favorite,
+        name="title-favorite",
     ),
     path(
         "titles/<int:pk>/reviews/create/",

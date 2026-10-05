@@ -29,6 +29,27 @@ class SearchForm(forms.Form):
     )
 
 
+class TitleFilterForm(SearchForm):
+    SORT_CHOICES = (
+        ("name", "Name"),
+        ("rating", "Top rated"),
+        ("newest", "Newest"),
+    )
+
+    media_type = forms.ChoiceField(
+        choices=[("", "All types")] + Title.MediaType.choices,
+        required=False,
+        label="",
+        widget=forms.Select(attrs={"class": "form-control ml-2"}),
+    )
+    sort = forms.ChoiceField(
+        choices=SORT_CHOICES,
+        required=False,
+        label="",
+        widget=forms.Select(attrs={"class": "form-control ml-2"}),
+    )
+
+
 class TitleForm(forms.ModelForm):
     genres = forms.ModelMultipleChoiceField(
         queryset=Genre.objects.all(),

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ critic.username }} | Metascore{% endblock %}
+{% block title %}{{ critic.username }} | TrueCritic{% endblock %}
 
 {% block content %}
   <h1>
@@ -13,6 +13,13 @@
   {% if critic.bio %}
     <p>{{ critic.bio|linebreaksbr }}</p>
   {% endif %}
+
+  <h2 class="h4 mt-4 mb-3">Favorites</h2>
+  {% for title in critic.favorite_titles.all %}
+    <a href="{{ title.get_absolute_url }}" class="badge badge-warning p-2 mb-2">★ {{ title.name }}</a>
+  {% empty %}
+    <p class="text-muted">No favorites yet.</p>
+  {% endfor %}
 
   <h2 class="h4 mt-4 mb-3">Reviews</h2>
   {% for review in critic.reviews.all %}
