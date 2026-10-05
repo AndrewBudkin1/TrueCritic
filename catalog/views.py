@@ -9,7 +9,6 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.db.models import ProtectedError
 
 
-
 def index(request):
     context = {
         "num_titles": Title.objects.count(),
@@ -62,6 +61,7 @@ class SignUpView(generic.CreateView):
         response = super().form_valid(form)
         login(self.request, self.object)
         return response
+
 
 class TitleListView(SearchMixin, generic.ListView):
     model = Title
