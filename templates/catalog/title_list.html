@@ -16,7 +16,14 @@
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="card h-100">
           <div class="card-body">
-            <span class="badge badge-secondary mb-2">{{ title.get_media_type_display }}</span>
+            <div class="d-flex justify-content-between mb-2">
+              <span class="badge badge-secondary">{{ title.get_media_type_display }}</span>
+              {% if title.avg_score %}
+                <span class="badge badge-primary">{{ title.avg_score|floatformat:1 }}</span>
+              {% else %}
+                <span class="badge badge-light">No ratings</span>
+              {% endif %}
+            </div>
             <h2 class="h5 card-title">
               <a href="{{ title.get_absolute_url }}">{{ title.name }}</a>
             </h2>

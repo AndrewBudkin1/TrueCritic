@@ -8,6 +8,9 @@ from catalog.views import (
     GenreDetailView,
     GenreListView,
     GenreUpdateView,
+    ReviewCreateView,
+    ReviewDeleteView,
+    ReviewUpdateView,
     SignUpView,
     StudioCreateView,
     StudioDeleteView,
@@ -47,6 +50,21 @@ urlpatterns = [
         "titles/<int:pk>/delete/",
         TitleDeleteView.as_view(),
         name="title-delete",
+    ),
+    path(
+        "titles/<int:pk>/reviews/create/",
+        ReviewCreateView.as_view(),
+        name="review-create",
+    ),
+    path(
+        "reviews/<int:pk>/update/",
+        ReviewUpdateView.as_view(),
+        name="review-update",
+    ),
+    path(
+        "reviews/<int:pk>/delete/",
+        ReviewDeleteView.as_view(),
+        name="review-delete",
     ),
     path("studios/", StudioListView.as_view(), name="studio-list"),
     path(

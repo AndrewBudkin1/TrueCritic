@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}{{ title.name }} | Metascore{% endblock %}
 
@@ -8,6 +9,18 @@
   <p class="text-muted">
     {{ title.studio.name }} ({{ title.studio.country }}), {{ title.release_year }}
   </p>
+
+  <div class="d-flex align-items-center mb-3">
+    {% if title.avg_score %}
+      <span class="display-4 mr-3">{{ title.avg_score|floatformat:1 }}</span>
+      <span class="text-muted">
+        based on {{ title.num_reviews }} review{{ title.num_reviews|pluralize }}
+      </span>
+    {% else %}
+      <span class="text-muted">No ratings yet</span>
+    {% endif %}
+  </div>
+
   <p>
     {% for genre in title.genres.all %}
       <span class="badge badge-light">{{ genre.name }}</span>
@@ -25,12 +38,40 @@
     <p>{{ title.description|linebreaksbr }}</p>
   {% endif %}
 
+  <h2 class="h4 mt-5 mb-3">Your review</h2>
+  {% if user.is_authenticated %}
+    {% if user_review %}
+      <div class="card mb-3 border-primary">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <span class="badge badge-primary">{{ user_review.score }}/10</span>
+            <div>
+              <a href="{% url 'catalog:review-update' pk=user_review.id %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+              <a href="{% url 'catalog:review-delete' pk=user_review.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+            </div>
+          </div>
+          <p class="mt-2 mb-0">{{ user_review.text|linebreaksbr }}</p>
+        </div>
+      </div>
+    {% else %}
+      <form method="post" action="{% url 'catalog:review-create' pk=title.id %}">
+        {% csrf_token %}
+        {{ review_form|crispy }}
+        <button type="submit" class="btn btn-primary">Post review</button>
+      </form>
+    {% endif %}
+  {% else %}
+    <a href="{% url 'login' %}?next={{ request.path }}" class="btn btn-primary">Log in to write a review</a>
+  {% endif %}
+
   <h2 class="h4 mt-5 mb-3">Reviews</h2>
   {% for review in title.reviews.all %}
     <div class="card mb-3">
       <div class="card-body">
         <div class="d-flex justify-content-between">
-          <strong>{{ review.critic.username }}</strong>
+          <a href="{% url 'catalog:critic-detail' pk=review.critic.id %}">
+            {{ review.critic.username }}{% if review.critic == user %} (You){% endif %}
+          </a>
           <span class="badge badge-primary">{{ review.score }}/10</span>
         </div>
         <p class="mt-2 mb-1">{{ review.text|linebreaksbr }}</p>

@@ -1,11 +1,19 @@
 from django.contrib.auth import login, get_user_model
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
-from django.db.models import Prefetch, Count
-from catalog.forms import CriticCreationForm, SearchForm, TitleForm
+from django.db.models import Avg, Count, Prefetch, ProtectedError
+from catalog.forms import (
+    CriticCreationForm,
+    ReviewForm,
+    SearchForm,
+    TitleForm,
+)
 from catalog.models import Title, Review, Studio, Genre
-from django.contrib.auth.mixins import UserPassesTestMixin
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin,
+    UserPassesTestMixin,
+)
 from django.db.models import ProtectedError
 
 
@@ -65,21 +73,41 @@ class SignUpView(generic.CreateView):
 
 class TitleListView(SearchMixin, generic.ListView):
     model = Title
-    queryset = Title.objects.select_related("studio").prefetch_related(
-        "genres"
+    queryset = (
+        Title.objects.select_related("studio")
+        .prefetch_related("genres")
+        .annotate(avg_score=Avg("reviews__score"))
     )
     paginate_by = 6
 
 
 class TitleDetailView(generic.DetailView):
     model = Title
-    queryset = Title.objects.select_related("studio").prefetch_related(
-        "genres",
-        Prefetch(
-            "reviews",
-            queryset=Review.objects.select_related("critic"),
-        ),
+    queryset = (
+        Title.objects.select_related("studio")
+        .prefetch_related(
+            "genres",
+            Prefetch(
+                "reviews",
+                queryset=Review.objects.select_related("critic"),
+            ),
+        )
+        .annotate(
+            avg_score=Avg("reviews__score"),
+            num_reviews=Count("reviews"),
+        )
     )
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        if user.is_authenticated:
+            context["user_review"] = Review.objects.filter(
+                critic=user,
+                title=self.object,
+            ).first()
+            context["review_form"] = ReviewForm()
+        return context
 
 
 class StudioListView(SearchMixin, generic.ListView):
@@ -190,3 +218,51 @@ class GenreDeleteView(StaffRequiredMixin, generic.DeleteView):
     model = Genre
     template_name = "catalog/confirm_delete.html"
     success_url = reverse_lazy("catalog:genre-list")
+
+
+class ReviewCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = "catalog/form.html"
+
+    def dispatch(self, request, *args, **kwargs):
+        self.title = get_object_or_404(Title, pk=kwargs["pk"])
+        if (
+            request.user.is_authenticated
+            and Review.objects.filter(
+                critic=request.user,
+                title=self.title,
+            ).exists()
+        ):
+            return redirect(self.title)
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        form.instance.critic = self.request.user
+        form.instance.title = self.title
+        return super().form_valid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cancel_url"] = self.title.get_absolute_url()
+        return context
+
+
+class ReviewUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = "catalog/form.html"
+
+    def get_queryset(self):
+        return Review.objects.filter(critic=self.request.user)
+
+
+class ReviewDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Review
+    template_name = "catalog/confirm_delete.html"
+
+    def get_queryset(self):
+        return Review.objects.filter(critic=self.request.user)
+
+    def get_success_url(self):
+        return self.object.title.get_absolute_url()
