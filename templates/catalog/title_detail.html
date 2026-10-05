@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title.name }} | Metascore{% endblock %}
+
+{% block content %}
+  <span class="badge badge-secondary">{{ title.get_media_type_display }}</span>
+  <h1 class="mt-2">{{ title.name }}</h1>
+  <p class="text-muted">
+    {{ title.studio.name }} ({{ title.studio.country }}), {{ title.release_year }}
+  </p>
+  <p>
+    {% for genre in title.genres.all %}
+      <span class="badge badge-light">{{ genre.name }}</span>
+    {% endfor %}
+  </p>
+
+  {% if user.is_staff %}
+    <div class="mb-4">
+      <a href="{% url 'catalog:title-update' pk=title.id %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+      <a href="{% url 'catalog:title-delete' pk=title.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+    </div>
+  {% endif %}
+
+  {% if title.description %}
+    <p>{{ title.description|linebreaksbr }}</p>
+  {% endif %}
+
+  <h2 class="h4 mt-5 mb-3">Reviews</h2>
+  {% for review in title.reviews.all %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <strong>{{ review.critic.username }}</strong>
+          <span class="badge badge-primary">{{ review.score }}/10</span>
+        </div>
+        <p class="mt-2 mb-1">{{ review.text|linebreaksbr }}</p>
+        <small class="text-muted">{{ review.created_at|date:"d M Y" }}</small>
+      </div>
+    </div>
+  {% empty %}
+    <p class="text-muted">No reviews yet.</p>
+  {% endfor %}
+{% endblock %}
