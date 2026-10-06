@@ -4,7 +4,7 @@
   "pk": 2,
   "fields": {
     "password": "pbkdf2_sha256$1500000$4u5dhpFsmhuaFHwWBumA1T$xOQ/RB40oO2jWbVufc8e9GgoquTSlXt57+pkSjdUsRA=",
-    "last_login": "2026-10-03T10:08:07Z",
+    "last_login": "2026-10-05T14:22:14.754Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -51,6 +51,44 @@
     "is_staff": false,
     "is_active": true,
     "date_joined": "2026-10-03T10:12:18.892Z",
+    "bio": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "catalog.critic",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$vhEtPTncBP7oEtV3QAT3Fs$TdRa5KC+Qz+w9VtQhLXSCYaByVJe6LShfqiWHRnxUAQ=",
+    "last_login": "2026-10-05T15:28:53.553Z",
+    "is_superuser": false,
+    "username": "Andrew",
+    "first_name": "Andrew",
+    "last_name": "Budkin",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-03T13:29:10.594Z",
+    "bio": "I am Andrew",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "catalog.critic",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$OZujs14zrWSP9H8GIg57Si$EXSzuCcyf9/SgQ3kYixNDK6fQh4dZ+Bl2h2pMUPD2Tg=",
+    "last_login": "2026-10-05T18:30:24.707Z",
+    "is_superuser": false,
+    "username": "TestUser",
+    "first_name": "John",
+    "last_name": "Pitt",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-05T18:16:57.755Z",
     "bio": "",
     "groups": [],
     "user_permissions": []
@@ -243,7 +281,10 @@
       7,
       4
     ],
-    "favorited_by": []
+    "favorited_by": [
+      5,
+      6
+    ]
   }
 },
 {
@@ -258,7 +299,10 @@
     "genres": [
       9
     ],
-    "favorited_by": []
+    "favorited_by": [
+      5,
+      6
+    ]
   }
 },
 {
@@ -274,7 +318,10 @@
       7,
       3
     ],
-    "favorited_by": []
+    "favorited_by": [
+      5,
+      6
+    ]
   }
 },
 {
@@ -376,6 +423,21 @@
   }
 },
 {
+  "model": "catalog.title",
+  "pk": 10,
+  "fields": {
+    "name": "The Witcher 3: Wild Hunt",
+    "media_type": "game",
+    "release_year": 2015,
+    "description": "",
+    "studio": 9,
+    "genres": [
+      9
+    ],
+    "favorited_by": []
+  }
+},
+{
   "model": "catalog.review",
   "pk": 1,
   "fields": {
@@ -417,6 +479,39 @@
     "score": 10,
     "text": "Pulp Fiction is a flawless 10/10 masterpiece, and despite what CoolGuy ranted about in his giga-overrated review, he completely missed the point of what makes this movie pure cinematic lightning.\r\n• The Dialogue Isn't Yapping, It's Art: CoolGuy complained about the endless talking, but those casual conversations about burgers and foot massages are exactly what make these terrifying hitmen feel brilliantly, hilariously human before they do their job.\r\n• The Timeline is a Stroke of Genius: It’s not a lazy gimmick—the nonlinear structure is a masterclass in pacing that keeps you hooked, ensuring the film ends on a high-stakes, unforgettable philosophical note rather than a grim shootout.\r\n• Pure Subversive Brilliance: It took the trashy, hollow tropes of old pulp magazines and elevated them into an iconic, stylish, and deeply influential cultural phenomenon that changed independent cinema forever.\r\nIt’s cool, it’s hilarious, and it’s peak Tarantino. CoolGuy can keep his boring, straight-line plots—this one remains an untouchable classic.",
     "created_at": "2026-10-03T10:45:33.929Z"
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 6,
+  "fields": {
+    "critic": 5,
+    "title": 8,
+    "score": 8,
+    "text": "Great movie",
+    "created_at": "2026-10-05T14:18:42.103Z"
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 8,
+  "fields": {
+    "critic": 5,
+    "title": 1,
+    "score": 10,
+    "text": "Masterpiece story",
+    "created_at": "2026-10-05T14:21:12.013Z"
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 9,
+  "fields": {
+    "critic": 6,
+    "title": 2,
+    "score": 6,
+    "text": "Boring game",
+    "created_at": "2026-10-05T18:29:31.403Z"
   }
 }
 ]
