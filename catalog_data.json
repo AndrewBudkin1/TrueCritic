@@ -1,0 +1,517 @@
+[
+{
+  "model": "catalog.critic",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$4u5dhpFsmhuaFHwWBumA1T$xOQ/RB40oO2jWbVufc8e9GgoquTSlXt57+pkSjdUsRA=",
+    "last_login": "2026-10-05T14:22:14.754Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-10-03T10:08:02Z",
+    "bio": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "catalog.critic",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$17meaSiuiJzjdUARKgKhKJ$WnVBRWyRKWIkDUWEN/8uiF9hS6jlEuZoex6KBLG2QnA=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "CoolGuy",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-03T10:10:55.283Z",
+    "bio": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "catalog.critic",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$EokRugrGnSMs9hsVCYR5RE$wYwvYBQUFL7ER+gdQAUmMrtEN9d7mQ75y3rys4sdLIk=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "blink",
+    "first_name": "John",
+    "last_name": "Pitt",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-03T10:12:18.892Z",
+    "bio": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "catalog.critic",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$vhEtPTncBP7oEtV3QAT3Fs$TdRa5KC+Qz+w9VtQhLXSCYaByVJe6LShfqiWHRnxUAQ=",
+    "last_login": "2026-10-05T15:28:53.553Z",
+    "is_superuser": false,
+    "username": "Andrew",
+    "first_name": "Andrew",
+    "last_name": "Budkin",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-03T13:29:10.594Z",
+    "bio": "I am Andrew",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "catalog.critic",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$OZujs14zrWSP9H8GIg57Si$EXSzuCcyf9/SgQ3kYixNDK6fQh4dZ+Bl2h2pMUPD2Tg=",
+    "last_login": "2026-10-05T18:30:24.707Z",
+    "is_superuser": false,
+    "username": "TestUser",
+    "first_name": "John",
+    "last_name": "Pitt",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-10-05T18:16:57.755Z",
+    "bio": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 1,
+  "fields": {
+    "name": "Action"
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 2,
+  "fields": {
+    "name": "Comedy"
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 3,
+  "fields": {
+    "name": "Drama"
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 4,
+  "fields": {
+    "name": "Horror"
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 5,
+  "fields": {
+    "name": "Science Fiction"
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 6,
+  "fields": {
+    "name": "Romance"
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 7,
+  "fields": {
+    "name": "Action-Adventure"
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 8,
+  "fields": {
+    "name": "Role-Playing Games"
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 9,
+  "fields": {
+    "name": "Action RPG"
+  }
+},
+{
+  "model": "catalog.genre",
+  "pk": 10,
+  "fields": {
+    "name": "Sports & Racing"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 1,
+  "fields": {
+    "name": "Warner Bros.",
+    "country": "USA"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 2,
+  "fields": {
+    "name": "Disney",
+    "country": "USA"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 3,
+  "fields": {
+    "name": "Universal Pictures",
+    "country": "USA"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 4,
+  "fields": {
+    "name": "Paramount Pictures",
+    "country": "USA"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 5,
+  "fields": {
+    "name": "Columbia Pictures",
+    "country": "USA"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 6,
+  "fields": {
+    "name": "Sony Interactive Entertainment",
+    "country": "Japan"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 7,
+  "fields": {
+    "name": "Xbox Game Studios",
+    "country": "USA"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 8,
+  "fields": {
+    "name": "Nintendo",
+    "country": "Japan"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 9,
+  "fields": {
+    "name": "CD Project Red",
+    "country": "Poland"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 10,
+  "fields": {
+    "name": "Warhorse Studios",
+    "country": "Czech"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 11,
+  "fields": {
+    "name": "Remedy Entertainment",
+    "country": "Finland"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 12,
+  "fields": {
+    "name": "Playground Games",
+    "country": "UK"
+  }
+},
+{
+  "model": "catalog.studio",
+  "pk": 13,
+  "fields": {
+    "name": "Miramax Films",
+    "country": "USA"
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 1,
+  "fields": {
+    "name": "Alan Wake 2",
+    "media_type": "game",
+    "release_year": 2023,
+    "description": "Alan Wake 2 is the critically acclaimed sequel to the cult-classic psychological thriller by Remedy Entertainment. Evolving from its predecessor's action-adventure roots, this installment steps fully into the territory of a deeply atmospheric psychological survival horror next-gen experience.\r\nIt is a mind-bending journey where reality twists into a nightmare, and the power of words can literally rewrite the world around you.",
+    "studio": 11,
+    "genres": [
+      7,
+      4
+    ],
+    "favorited_by": [
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 2,
+  "fields": {
+    "name": "Kingdom Come Deliverance 2",
+    "media_type": "game",
+    "release_year": 2025,
+    "description": "Kingdom Come: Deliverance II is a critically acclaimed narrative-driven, open-world historical action RPG developed by Warhorse Studios. Serving as a direct sequel to the 2018 cult hit, the game immerses players back into a brutally realistic medieval world, expanding significantly on its predecessor's scope, combat depth, and cinematic storytelling.\r\nThere are no dragons, magic, or fantasy tropes here—only pure, uncompromising historical authenticity where your choices carve your destiny.",
+    "studio": 10,
+    "genres": [
+      9
+    ],
+    "favorited_by": [
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 3,
+  "fields": {
+    "name": "Control Resonant",
+    "media_type": "game",
+    "release_year": 2026,
+    "description": "Control Resonant is a mind-bending, highly-anticipated action-adventure RPG developed and published by Remedy Entertainment. Serving as a proper standalone sequel to the multi-award-winning 2019 hit Control, the game thrusts players out of the corporate hallways of the Oldest House and straight into a paranaturally ravaged, reality-warping open world.\r\nBreaking away from traditional genre boundaries, it swaps its predecessor’s gunplay for intense, gravity-defying melee combat and deep character customization.",
+    "studio": 11,
+    "genres": [
+      7,
+      3
+    ],
+    "favorited_by": [
+      5,
+      6
+    ]
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 4,
+  "fields": {
+    "name": "Forza Horizon 6",
+    "media_type": "game",
+    "release_year": 2026,
+    "description": "Forza Horizon 6 is an open-world arcade racing adventure developed by Playground Games and published by Xbox Game Studios. Marking a massive milestone for the franchise, this installment takes the Horizon Festival to the highly requested, breathtaking landscapes of Japan, blending intense racing with rich automotive culture across the series' biggest and most vertical map to date.\r\nWhether drifting down narrow mountain passes (touge) or tearing through neon-drenched city grids, it is the ultimate creative sandbox for car enthusiasts.",
+    "studio": 12,
+    "genres": [
+      10
+    ],
+    "favorited_by": []
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 5,
+  "fields": {
+    "name": "The Truman Show",
+    "media_type": "movie",
+    "release_year": 1998,
+    "description": "The Truman Show is a masterfully crafted satirical psychological comedy-drama directed by Peter Weir and written by Andrew Niccol. Released in 1998, this groundbreaking film stars Jim Carrey in a career-defining role that seamlessly blends his signature comedic energy with profound dramatic depth. Renowned for its visionary concept and prescient commentary on reality television, surveillance culture, and media omnipotence, the film stands as a timeless masterpiece in modern cinema.",
+    "studio": 4,
+    "genres": [
+      2,
+      3
+    ],
+    "favorited_by": [
+      3
+    ]
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 6,
+  "fields": {
+    "name": "The Shawshank Redemption",
+    "media_type": "movie",
+    "release_year": 1994,
+    "description": "The Shawshank Redemption is an acclaimed, deeply moving prison drama written and directed by Frank Darabont, based on Stephen King's 1982 novella Rita Hayworth and Shawshank Redemption. Released in 1994, this cinematic masterpiece stars Tim Robbins and Morgan Freeman in defining roles. Despite underperforming at the box office initially, the film found a legendary second life on home video and television. For over two decades, it has held the coveted #1 spot on IMDb's Top 250 list.",
+    "studio": 5,
+    "genres": [
+      3
+    ],
+    "favorited_by": [
+      4
+    ]
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 7,
+  "fields": {
+    "name": "Spider-Man: Brand New Day",
+    "media_type": "movie",
+    "release_year": 2026,
+    "description": "Spider-Man: Brand New Day is a massive blockbuster superhero action-adventure film directed by Destin Daniel Cretton and produced by Marvel Studios and Columbia Pictures. Serving as the 38th film in the Marvel Cinematic Universe (MCU) and the fourth installment in Tom Holland’s standalone Spider-Man series, it marks a bold, mature creative turning point for the web-slinger. Breaking box-office records globally, the film blends high-stakes superhero action with an intense psychological character study.\r\nThe world may have forgotten Peter Parker, but his burden as the city's lone protector has never been heavier.",
+    "studio": 5,
+    "genres": [
+      1,
+      3
+    ],
+    "favorited_by": []
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 8,
+  "fields": {
+    "name": "The Odyssey",
+    "media_type": "movie",
+    "release_year": 2026,
+    "description": "The Odyssey is a monumental mythic action epic written, directed, and produced by master filmmaker Christopher Nolan. Released in 2026 as his highly anticipated follow-up to Oppenheimer, the film brings Homer's foundational ancient Greek saga to life with unparalleled cinematic grandeur. Breaking global box-office records, it is the first feature film in history to be shot entirely on IMAX 70mm cameras, turning an ancient tale of survival into a gritty, visually spectacular masterpiece.\r\nRather than focusing purely on grand myth, Nolan explores the heavy psychological weight of warfare, the elusive nature of glory, and what human beings truly owe to one another.",
+    "studio": 3,
+    "genres": [
+      1,
+      3
+    ],
+    "favorited_by": []
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 9,
+  "fields": {
+    "name": "Pulp Fiction",
+    "media_type": "movie",
+    "release_year": 1994,
+    "description": "Pulp Fiction is a monumental, genre-defining neo-noir crime comedy-drama written and directed by Quentin Tarantino, from a story conceived alongside Roger Avary. Released in 1994, this cultural watershed shook up the film industry with its iconic punchy dialogue, pop culture references, and stylized approach to violence and redemption. Winning the prestigious Palme d'Or at the Cannes Film Festival and an Academy Award for Best Original Screenplay, it is widely regarded as one of the most influential masterpieces in modern independent cinema.",
+    "studio": 13,
+    "genres": [
+      1,
+      2
+    ],
+    "favorited_by": []
+  }
+},
+{
+  "model": "catalog.title",
+  "pk": 10,
+  "fields": {
+    "name": "The Witcher 3: Wild Hunt",
+    "media_type": "game",
+    "release_year": 2015,
+    "description": "",
+    "studio": 9,
+    "genres": [
+      9
+    ],
+    "favorited_by": []
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 1,
+  "fields": {
+    "critic": 3,
+    "title": 1,
+    "score": 9,
+    "text": "Alan Wake 2 is a flat-out masterpiece of survival horror, and honestly, it easily clears a 9/10. Remedy didn't just make a sequel; they went full mad scientist and cooked up a mind-bending, reality-shifting nightmare that holds you by the throat from the very first minute.\r\n• The Dual-Protagonist Setup is Perfection: Switching between Saga Anderson’s gritty, True Detective-style FBI investigation and Alan’s trippy, neon-noir despair in the Dark Place keeps the pacing absolutely flawless.\r\n• The Atmosphere is Suffocating: The lighting, the live-action integration, and the audio design are so intense they’ll make you want to leave your house lights on for a week.\r\n• Combat with Consequences: Every gunshot feels heavy, ammo is dangerously scarce, and the shadow-cloaked Taken are genuinely terrifying to fight.\r\nIt’s bold, it’s completely weird, and it respects your intelligence. If you haven't stepped into Bright Falls yet, you are missing out on one of the best horror experiences ever made.\r\nThat was an absolute blast to write! Drop your next game or movie along with the mood/vibe you want me to bring to the table.",
+    "created_at": "2026-10-03T10:41:28.824Z"
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 2,
+  "fields": {
+    "critic": 4,
+    "title": 2,
+    "score": 10,
+    "text": "Kingdom Come: Deliverance II is an absolute historical masterpiece and a flawless 10/10. Warhorse Studios took everything that made the first game a cult classic and turned the scale, detail, and pure medieval immersion up to eleven. It is, without a doubt, the ultimate RPG for anyone who wants a true, uncompromising historical simulator.\r\n• Henry’s Evolution is Epic: Watching Henry of Skalitz grow from a clumsy blacksmith's boy into a battle-hardened squire caught in a massive royal civil war feels incredibly rewarding.\r\n• The Living, Breathing World: Walking into the massive, bustling silver city of Kutná Hora is a jaw-dropping experience. Every single NPC has a routine, and the world remembers exactly who you are, how you dress, and how you behave.\r\n• Visceral, Brutal Combat: The first-person sword fighting is smoother and more satisfying than ever, and adding early medieval firearms and crossbows into the mix makes the chaos of battle feel wonderfully authentic.\r\nIt has no magic, no dragons, and zero hand-holding—just pure, beautiful medieval chaos where your choices actually dictate your fate. It is a triumph of game design and an unforgettable journey.",
+    "created_at": "2026-10-03T10:42:28.371Z"
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 3,
+  "fields": {
+    "critic": 3,
+    "title": 9,
+    "score": 4,
+    "text": "Pulp Fiction is the absolute poster child for being giga-overrated, and a 4/10 is honestly being generous. For decades, film theorists and cinema students have treated this movie like the second coming of Christ, but if you strip away the 90s nostalgia goggles, it’s basically just a two-and-a-half-hour compilation of bad hair days, awkward dancing, and criminals who desperately need a therapist instead of a gun.\r\n• The \"Masterpiece\" Dialogue is Just Infinite Yapping: Fans act like the royal-with-cheese conversation is peak cinema, but let's be real—it's just two grown hitmen rambling like high schoolers who just discovered fast food in Europe. The movie treats mundane, pointlessly long conversations as if they are deeply philosophical, forcing you to sit through endless filler before anything actually happens.\r\n• The Timeline Trim is a Lazy Gimmick: Mixing up the chronological order doesn't make a story deep; it just means Tarantino dropped his script down the stairs and decided to film it in the exact order he picked the pages up. If you untangle the timeline and watch the stories in a normal sequence, the plot is incredibly basic, predictable, and remarkably empty.\r\n• The \"Iconic\" Mia Wallace Arc is a Total Mess: You’ve seen the poster in literally every college dorm room ever, but her entire presence in the movie boils down to a cringey twist dance contest and a completely absurd, stressful medical emergency that kills the pacing of the entire first half.\r\nIt’s a movie made for people who think wearing a black suit and quoting fake Bible verses makes them look cool. It prioritized edgy aesthetics and shock value over real substance, cementing its place as the most over-hyped, self-satisfied movie in cinematic history.",
+    "created_at": "2026-10-03T10:43:45.592Z"
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 4,
+  "fields": {
+    "critic": 4,
+    "title": 9,
+    "score": 10,
+    "text": "Pulp Fiction is a flawless 10/10 masterpiece, and despite what CoolGuy ranted about in his giga-overrated review, he completely missed the point of what makes this movie pure cinematic lightning.\r\n• The Dialogue Isn't Yapping, It's Art: CoolGuy complained about the endless talking, but those casual conversations about burgers and foot massages are exactly what make these terrifying hitmen feel brilliantly, hilariously human before they do their job.\r\n• The Timeline is a Stroke of Genius: It’s not a lazy gimmick—the nonlinear structure is a masterclass in pacing that keeps you hooked, ensuring the film ends on a high-stakes, unforgettable philosophical note rather than a grim shootout.\r\n• Pure Subversive Brilliance: It took the trashy, hollow tropes of old pulp magazines and elevated them into an iconic, stylish, and deeply influential cultural phenomenon that changed independent cinema forever.\r\nIt’s cool, it’s hilarious, and it’s peak Tarantino. CoolGuy can keep his boring, straight-line plots—this one remains an untouchable classic.",
+    "created_at": "2026-10-03T10:45:33.929Z"
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 6,
+  "fields": {
+    "critic": 5,
+    "title": 8,
+    "score": 8,
+    "text": "Great movie",
+    "created_at": "2026-10-05T14:18:42.103Z"
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 8,
+  "fields": {
+    "critic": 5,
+    "title": 1,
+    "score": 10,
+    "text": "Masterpiece story",
+    "created_at": "2026-10-05T14:21:12.013Z"
+  }
+},
+{
+  "model": "catalog.review",
+  "pk": 9,
+  "fields": {
+    "critic": 6,
+    "title": 2,
+    "score": 6,
+    "text": "Boring game",
+    "created_at": "2026-10-05T18:29:31.403Z"
+  }
+}
+]

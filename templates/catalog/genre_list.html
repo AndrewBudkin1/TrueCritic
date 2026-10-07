@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Genres | TrueCritic{% endblock %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Genres</h1>
+    {% if user.is_staff %}
+      <a href="{% url 'catalog:genre-create' %}" class="btn btn-primary">+ Add genre</a>
+    {% endif %}
+  </div>
+
+  <div class="list-group">
+    {% for genre in genre_list %}
+      <a href="{{ genre.get_absolute_url }}" class="list-group-item list-group-item-action d-flex justify-content-between">
+        {{ genre.name }}
+        <span class="badge badge-secondary badge-pill">{{ genre.num_titles }}</span>
+      </a>
+    {% empty %}
+      <p class="text-muted">There are no genres yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

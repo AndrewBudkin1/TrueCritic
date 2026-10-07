@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'catalog:index' %}">TrueCritic</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'catalog:index' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'catalog:title-list' %}">Titles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'catalog:studio-list' %}">Studios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'catalog:genre-list' %}">Genres</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'catalog:critic-list' %}">Critics</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link mr-2" href="{% url 'catalog:critic-detail' pk=user.id %}">{{ user.username }}</a>
+          </li>
+          <li class="nav-item">
+            <form action="{% url 'logout' %}" method="post" class="form-inline">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-outline-light btn-sm">Log out</button>
+            </form>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Log in</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary btn-sm ml-lg-2" href="{% url 'catalog:signup' %}">Sign up</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>

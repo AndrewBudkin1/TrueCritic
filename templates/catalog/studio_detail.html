@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}{{ studio.name }} | TrueCritic{% endblock %}
+
+{% block content %}
+  <h1>{{ studio.name }}</h1>
+  <p class="text-muted">{{ studio.country }}</p>
+
+  {% if user.is_staff %}
+    <div class="mb-4">
+      <a href="{% url 'catalog:studio-update' pk=studio.id %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+      <a href="{% url 'catalog:studio-delete' pk=studio.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+    </div>
+  {% endif %}
+
+  <h2 class="h4 mt-4 mb-3">Titles</h2>
+  <ul class="list-group">
+    {% for title in studio.titles.all %}
+      <li class="list-group-item d-flex justify-content-between">
+        <a href="{{ title.get_absolute_url }}">{{ title.name }}</a>
+        <span class="text-muted">{{ title.get_media_type_display }}, {{ title.release_year }}</span>
+      </li>
+    {% empty %}
+      <li class="list-group-item text-muted">No titles yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Titles | TrueCritic{% endblock %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="mb-0">Titles</h1>
+    {% if user.is_staff %}
+      <a href="{% url 'catalog:title-create' %}" class="btn btn-primary">+ Add title</a>
+    {% endif %}
+  </div>
+
+  <form method="get" action="" class="form-inline mb-4">
+    {{ search_form.q }}
+    {{ search_form.media_type }}
+    {{ search_form.sort }}
+    <button type="submit" class="btn btn-outline-primary ml-2">Apply</button>
+  </form>
+
+  <div class="row">
+    {% for title in title_list %}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mb-2">
+              <span class="badge badge-secondary">{{ title.get_media_type_display }}</span>
+              {% if title.avg_score %}
+                <span class="badge badge-primary">{{ title.avg_score|floatformat:1 }}</span>
+              {% else %}
+                <span class="badge badge-light">No ratings</span>
+              {% endif %}
+            </div>
+            <h2 class="h5 card-title">
+              <a href="{{ title.get_absolute_url }}">{{ title.name }}</a>
+            </h2>
+            <p class="card-text text-muted mb-1">
+              {{ title.studio.name }}, {{ title.release_year }}
+            </p>
+            <p class="card-text small mb-0">
+              {% for genre in title.genres.all %}{{ genre.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+            </p>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="col">There are no titles yet.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}{{ genre.name }} | TrueCritic{% endblock %}
+
+{% block content %}
+  <h1 class="mb-3">{{ genre.name }}</h1>
+
+  {% if user.is_staff %}
+    <div class="mb-4">
+      <a href="{% url 'catalog:genre-update' pk=genre.id %}" class="btn btn-outline-secondary btn-sm">Edit</a>
+      <a href="{% url 'catalog:genre-delete' pk=genre.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+    </div>
+  {% endif %}
+
+  <ul class="list-group">
+    {% for title in genre.titles.all %}
+      <li class="list-group-item d-flex justify-content-between">
+        <a href="{{ title.get_absolute_url }}">{{ title.name }}</a>
+        <span class="text-muted">{{ title.studio.name }}, {{ title.release_year }}</span>
+      </li>
+    {% empty %}
+      <li class="list-group-item text-muted">No titles in this genre yet.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

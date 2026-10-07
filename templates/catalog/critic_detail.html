@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ critic.username }} | TrueCritic{% endblock %}
+
+{% block content %}
+  <h1>
+    {{ critic.username }}
+    {% if critic == user %}<small class="text-muted">(Me)</small>{% endif %}
+  </h1>
+  {% if critic.first_name or critic.last_name %}
+    <p class="text-muted">{{ critic.first_name }} {{ critic.last_name }}</p>
+  {% endif %}
+  {% if critic.bio %}
+    <p>{{ critic.bio|linebreaksbr }}</p>
+  {% endif %}
+
+  <h2 class="h4 mt-4 mb-3">Favorites</h2>
+  {% for title in critic.favorite_titles.all %}
+    <a href="{{ title.get_absolute_url }}" class="badge badge-warning p-2 mb-2">★ {{ title.name }}</a>
+  {% empty %}
+    <p class="text-muted">No favorites yet.</p>
+  {% endfor %}
+
+  <h2 class="h4 mt-4 mb-3">Reviews</h2>
+  {% for review in critic.reviews.all %}
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <a href="{% url 'catalog:title-detail' pk=review.title.id %}">{{ review.title.name }}</a>
+          <span class="badge badge-primary">{{ review.score }}/10</span>
+        </div>
+        <p class="mt-2 mb-1">{{ review.text|linebreaksbr }}</p>
+        <small class="text-muted">{{ review.created_at|date:"d M Y" }}</small>
+      </div>
+    </div>
+  {% empty %}
+    <p class="text-muted">No reviews yet.</p>
+  {% endfor %}
+{% endblock %}
