@@ -2,6 +2,10 @@
 
 A Django web application for rating and reviewing movies and video games, inspired by Metacritic. Critics write reviews with a score from 1 to 10, and every title gets an average rating calculated from all its reviews.
 
+**Live demo:** https://truecritic.onrender.com/
+
+> The demo is hosted on Render's free plan, so the first page load after a period of inactivity may take up to a minute while the server wakes up.
+
 ## Features
 
 - **Public catalog** — titles, studios, genres and critics are available without logging in
@@ -18,9 +22,10 @@ A Django web application for rating and reviewing movies and video games, inspir
 ## Tech stack
 
 - Python 3.12, Django
-- SQLite
+- PostgreSQL (production), SQLite (development)
 - Bootstrap 4, django-crispy-forms
 - django-debug-toolbar (development)
+- Deployed on Render
 
 ## Database structure
 
@@ -44,13 +49,31 @@ python3 -m venv venv
 source venv/bin/activate  # on Windows: venv\Scripts\activate
 
 pip install -r requirements.txt
+```
 
+Create a `.env` file in the project root based on `.env.sample`. For local development only `DJANGO_SECRET_KEY` is optional; the development settings use SQLite and work without any other variables.
+
+```bash
 python manage.py migrate
 python manage.py loaddata catalog_data.json
 python manage.py runserver
 ```
 
 Then open http://127.0.0.1:8000/.
+
+## Settings
+
+Settings are split by environment in `truecritic/settings/`:
+
+- `base.py` — shared settings
+- `dev.py` — local development: `DEBUG = True`, SQLite, Django Debug Toolbar
+- `prod.py` — production: `DEBUG = False`, PostgreSQL, all secrets from environment variables
+
+`manage.py` uses `dev` by default. To use production settings, set:
+
+```bash
+DJANGO_SETTINGS_MODULE=truecritic.settings.prod
+```
 
 ## Test users
 
