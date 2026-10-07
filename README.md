@@ -37,7 +37,7 @@ Main models:
 ## Installation
 
 ```bash
-git clone [repository link]
+git clone https://github.com/AndrewBudkin1/TrueCritic.git
 cd TrueCritic
 
 python3 -m venv venv

@@ -42,6 +42,7 @@ def index(request):
     }
     return render(request, "catalog/index.html", context=context)
 
+
 @login_required
 @require_POST
 def toggle_favorite(request, pk: int):
